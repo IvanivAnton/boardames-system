@@ -10,18 +10,18 @@ class Interactor implements InputPortInterface
 {
     private EventRepositoryInterface $eventRepository;
     private EventFactoryInterface $eventFactory;
-    private OutputPortInterface $outputPort;
+    private OutputPortInterface $output;
 
     /**
      * @param EventRepositoryInterface $eventRepository
      * @param EventFactoryInterface $eventFactory
-     * @param OutputPortInterface $outputPort
+     * @param OutputPortInterface $output
      */
-    public function __construct(EventRepositoryInterface $eventRepository, EventFactoryInterface $eventFactory, OutputPortInterface $outputPort)
+    public function __construct(EventRepositoryInterface $eventRepository, EventFactoryInterface $eventFactory, OutputPortInterface $output)
     {
         $this->eventRepository = $eventRepository;
         $this->eventFactory = $eventFactory;
-        $this->outputPort = $outputPort;
+        $this->output = $output;
     }
 
 
@@ -36,13 +36,13 @@ class Interactor implements InputPortInterface
         $event = $this->eventFactory->make($eventData);
 
         if (!empty($this->eventRepository->getByDateAndPlace($event->getDate(), $event->getPlaceId()))) {
-            return $this->outputPort->eventIntersection(new ResponseModel($event));
+            return $this->output->eventIntersection(new ResponseModel($event));
         }
 
         if(!$this->eventRepository->update($event->getId(), $valuesToUpdate)) {
-            return $this->outputPort->updateFailed(new ResponseModel($event));
+            return $this->output->updateFailed(new ResponseModel($event));
         }
 
-        return $this->outputPort->successfullyUpdated(new ResponseModel($event));
+        return $this->output->successfullyUpdated(new ResponseModel($event));
     }
 }

@@ -8,7 +8,6 @@ use App\Models\TablePlayer;
 
 class TablePlayerFactory implements TablePlayerFactoryInterface
 {
-
     public function make(array $attributes = []): TablePlayerInterface
     {
         return new TablePlayer($attributes);

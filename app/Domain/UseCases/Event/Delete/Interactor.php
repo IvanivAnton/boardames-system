@@ -9,18 +9,18 @@ use App\Domain\Interfaces\Repositories\EventRepositoryInterface;
 class Interactor implements InputPortInterface
 {
     private EventRepositoryInterface $eventRepository;
-    private OutputPortInterface $outputPort;
+    private OutputPortInterface $output;
     private EventFactoryInterface $eventFactory;
 
     /**
      * @param EventRepositoryInterface $eventRepository
-     * @param OutputPortInterface $outputPort
+     * @param OutputPortInterface $output
      * @param EventFactoryInterface $eventFactory
      */
-    public function __construct(EventRepositoryInterface $eventRepository, OutputPortInterface $outputPort, EventFactoryInterface $eventFactory)
+    public function __construct(EventRepositoryInterface $eventRepository, OutputPortInterface $output, EventFactoryInterface $eventFactory)
     {
         $this->eventRepository = $eventRepository;
-        $this->outputPort = $outputPort;
+        $this->output = $output;
         $this->eventFactory = $eventFactory;
     }
 
@@ -30,13 +30,13 @@ class Interactor implements InputPortInterface
         $event = $this->eventRepository->get($model->getId());
 
         if (empty($event)) {
-            return $this->outputPort->noSuchEvent(new ResponseModel($this->eventFactory->make(['id' => $model->getId()])));
+            return $this->output->noSuchEvent(new ResponseModel($this->eventFactory->make(['id' => $model->getId()])));
         }
 
         if (!$this->eventRepository->delete($event->getId())) {
-            return $this->outputPort->deletionFailed(new ResponseModel($event));
+            return $this->output->deletionFailed(new ResponseModel($event));
         }
 
-        return $this->outputPort->successfullyDeleted(new ResponseModel($event));
+        return $this->output->successfullyDeleted(new ResponseModel($event));
     }
 }

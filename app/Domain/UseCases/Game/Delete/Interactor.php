@@ -11,18 +11,18 @@ use App\Domain\Interfaces\Repositories\GameRepositoryInterface;
 class Interactor implements InputPortInterface
 {
     private GameRepositoryInterface $repository;
-    private OutputPortInterface $outputPort;
+    private OutputPortInterface $output;
     private GameFactoryInterface $factory;
 
     /**
      * @param GameRepositoryInterface $repository
-     * @param OutputPortInterface $outputPort
+     * @param OutputPortInterface $output
      * @param GameFactoryInterface $factory
      */
-    public function __construct(GameRepositoryInterface $repository, OutputPortInterface $outputPort, GameFactoryInterface $factory)
+    public function __construct(GameRepositoryInterface $repository, OutputPortInterface $output, GameFactoryInterface $factory)
     {
         $this->repository = $repository;
-        $this->outputPort = $outputPort;
+        $this->output = $output;
         $this->factory = $factory;
     }
 
@@ -32,13 +32,13 @@ class Interactor implements InputPortInterface
         $event = $this->repository->get($model->getId());
 
         if (empty($event)) {
-            return $this->outputPort->noSuchGame(new ResponseModel($this->factory->make(['id' => $model->getId()])));
+            return $this->output->noSuchGame(new ResponseModel($this->factory->make(['id' => $model->getId()])));
         }
 
         if (!$this->repository->delete($event->getId())) {
-            return $this->outputPort->deletionFailed(new ResponseModel($event));
+            return $this->output->deletionFailed(new ResponseModel($event));
         }
 
-        return $this->outputPort->successfullyDeleted(new ResponseModel($event));
+        return $this->output->successfullyDeleted(new ResponseModel($event));
     }
 }

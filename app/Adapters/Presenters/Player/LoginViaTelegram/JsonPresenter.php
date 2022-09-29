@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Adapters\Presenters\Player\LogivViaTelegram;
+namespace App\Adapters\Presenters\Player\LoginViaTelegram;
 
 use App\Adapters\ViewModels\JsonResourceViewModel;
 use App\Domain\Interfaces\Entities\ViewModelInterface;
