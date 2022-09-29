@@ -23,7 +23,7 @@ class EventEloquentRepository implements \App\Domain\Interfaces\Repositories\Eve
         /** @var Event $event */
         $event = Event::query()->create([
             'date' => $event->getDate(),
-            'start_time' => $event->getDefaultGameStartTime(),
+            'start_time' => $event->getGameDefaultStartTime(),
             'place_id' => $event->getPlaceId(),
         ]);
         return $event;

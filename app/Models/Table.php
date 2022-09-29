@@ -86,8 +86,8 @@ class Table extends \Illuminate\Database\Eloquent\Model implements \App\Domain\I
     /**
      * @inheritDoc
      */
-    public function getPlayerId(): int
+    public function getOwnerId(): int
     {
-        return $this->attributes['player_id'];
+        return $this->attributes['owner_id'];
     }
 }

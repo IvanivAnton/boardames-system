@@ -29,9 +29,9 @@ class Event extends Model implements EventInterface
     /**
      * @inheritDoc
      */
-    public function getDefaultGameStartTime(): string
+    public function getGameDefaultStartTime(): string
     {
-        return $this->attributes['start_time'];
+        return $this->attributes['game_default_start_time'];
     }
 
     /**
