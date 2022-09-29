@@ -48,4 +48,9 @@ interface TableInterface
      * @return \DateTimeInterface|null
      */
     public function getDeletedAt(): ?\DateTimeInterface;
+
+    /**
+     * @return int
+     */
+    public function getPlayerId(): int;
 }

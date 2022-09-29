@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Player\Controllers;
+namespace App\Http\Player\Controllers\Login;
 
 use App\Domain\Interfaces\Entities\ViewModelInterface;
 use App\Domain\UseCases\Player\LoginViaTelegram\InputPortInterface;

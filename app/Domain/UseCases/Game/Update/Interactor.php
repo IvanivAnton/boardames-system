@@ -9,18 +9,18 @@ use App\Domain\Interfaces\Repositories\GameRepositoryInterface;
 class Interactor implements InputPortInterface
 {
     private GameRepositoryInterface $repository;
-    private OutputPortInterface $outputPort;
+    private OutputPortInterface $output;
     private GameFactoryInterface $factory;
 
     /**
      * @param GameRepositoryInterface $repository
-     * @param OutputPortInterface $outputPort
+     * @param OutputPortInterface $output
      * @param GameFactoryInterface $factory
      */
-    public function __construct(GameRepositoryInterface $repository, OutputPortInterface $outputPort, GameFactoryInterface $factory)
+    public function __construct(GameRepositoryInterface $repository, OutputPortInterface $output, GameFactoryInterface $factory)
     {
         $this->repository = $repository;
-        $this->outputPort = $outputPort;
+        $this->output = $output;
         $this->factory = $factory;
     }
 
@@ -35,13 +35,13 @@ class Interactor implements InputPortInterface
 
 
         if (!empty($this->repository->getByName($game->getName()))) {
-            return $this->outputPort->nameNotUnique(new ResponseModel($game));
+            return $this->output->nameNotUnique(new ResponseModel($game));
         }
 
         if (!$this->repository->update($game->getId(), $valueToUpdate)) {
-            return $this->outputPort->updateFailed(new ResponseModel($game));
+            return $this->output->updateFailed(new ResponseModel($game));
         }
 
-        return $this->outputPort->successfullyUpdated(new ResponseModel($game));
+        return $this->output->successfullyUpdated(new ResponseModel($game));
     }
 }

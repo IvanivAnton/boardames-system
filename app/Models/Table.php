@@ -82,4 +82,12 @@ class Table extends \Illuminate\Database\Eloquent\Model implements \App\Domain\I
     {
         return $this->attributes['deleted_at'];
     }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPlayerId(): int
+    {
+        return $this->attributes['player_id'];
+    }
 }
