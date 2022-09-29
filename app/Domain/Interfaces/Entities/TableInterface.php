@@ -52,5 +52,5 @@ interface TableInterface
     /**
      * @return int
      */
-    public function getPlayerId(): int;
+    public function getOwnerId(): int;
 }

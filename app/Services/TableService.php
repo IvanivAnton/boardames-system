@@ -27,6 +27,6 @@ class TableService implements \App\Domain\Interfaces\Services\TableServiceInterf
 
         $table = $this->repository->get($tableId);
 
-        return $table->getPlayerId() === $currentPlayer->getId();
+        return $table->getOwnerId() === $currentPlayer->getId();
     }
 }

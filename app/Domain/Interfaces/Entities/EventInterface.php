@@ -17,7 +17,7 @@ interface EventInterface
     /**
      * @return string
      */
-    public function getDefaultGameStartTime(): string;
+    public function getGameDefaultStartTime(): string;
 
     /**
      * @return int
