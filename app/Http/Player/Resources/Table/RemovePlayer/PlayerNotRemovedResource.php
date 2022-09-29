@@ -2,8 +2,6 @@
 
 namespace App\Http\Player\Resources\Table\RemovePlayer;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
-
 class PlayerNotRemovedResource extends \Illuminate\Http\Resources\Json\JsonResource
 {
     public function toArray($request): array
@@ -11,5 +9,10 @@ class PlayerNotRemovedResource extends \Illuminate\Http\Resources\Json\JsonResou
         return [
             'message' => 'Player has not been removed due to error'
         ];
+    }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(500);
     }
 }

@@ -23,5 +23,10 @@ class TableUpdateResource extends \Illuminate\Http\Resources\Json\JsonResource
         ];
     }
 
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(200);
+    }
+
 
 }

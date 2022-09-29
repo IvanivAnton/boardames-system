@@ -13,4 +13,10 @@ class TableNotDeletedResource extends JsonResource
         ];
     }
 
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(500);
+    }
+
+
 }

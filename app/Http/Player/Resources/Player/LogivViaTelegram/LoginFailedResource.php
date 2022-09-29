@@ -10,4 +10,9 @@ class LoginFailedResource extends \Illuminate\Http\Resources\Json\JsonResource
             'message' => 'Authentication failed'
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(401);
+    }
 }

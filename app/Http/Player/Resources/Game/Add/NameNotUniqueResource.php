@@ -12,4 +12,10 @@ class NameNotUniqueResource extends \Illuminate\Http\Resources\Json\JsonResource
             'message' => 'Game with this name already exists'
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(422);
+    }
+
 }

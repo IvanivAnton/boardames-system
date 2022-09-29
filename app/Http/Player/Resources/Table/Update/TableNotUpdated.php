@@ -12,4 +12,11 @@ class TableNotUpdated extends \Illuminate\Http\Resources\Json\JsonResource
             'message' => 'Table has not been removed due to error'
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(500);
+    }
+
+
 }

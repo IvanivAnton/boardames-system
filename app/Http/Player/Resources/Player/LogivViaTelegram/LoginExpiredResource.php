@@ -10,4 +10,9 @@ class LoginExpiredResource extends \Illuminate\Http\Resources\Json\JsonResource
             'message' => 'Authentication data expired'
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(401);
+    }
 }

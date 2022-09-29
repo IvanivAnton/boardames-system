@@ -22,4 +22,11 @@ class PlayerRemovedResource extends \Illuminate\Http\Resources\Json\JsonResource
             'id' => $this->player->getId(),
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(200);
+    }
+
+
 }

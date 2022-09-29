@@ -23,5 +23,10 @@ class SuccessfullyAddedResource extends \Illuminate\Http\Resources\Json\JsonReso
         ];
     }
 
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(200);
+    }
+
 
 }
