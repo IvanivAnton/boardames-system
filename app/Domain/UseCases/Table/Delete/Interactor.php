@@ -40,7 +40,7 @@ class Interactor implements InputPortInterface
         }
 
         if(!$this->service->canCurrentPlayerEditTable($id)) {
-            return $this->output->updateNotAllowed(new ResponseModel($id));
+            return $this->output->deleteNotAllowed(new ResponseModel($id));
         }
 
         $response = new ResponseModel($requestModel->getTableId());

@@ -3,8 +3,9 @@
 namespace App\Http\Player\Resources\Player\LogivViaTelegram;
 
 use App\Domain\Interfaces\Entities\PlayerInterface;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class SuccessfullyLoginResource extends \Illuminate\Foundation\Http\FormRequest
+class SuccessfullyLoginResource extends JsonResource
 {
     protected PlayerInterface $player;
 
@@ -16,12 +17,15 @@ class SuccessfullyLoginResource extends \Illuminate\Foundation\Http\FormRequest
         $this->player = $player;
     }
 
-    public function toArray(): array
+    public function toArray($request): array
     {
         return [
             'id' => $this->player->getId(),
         ];
     }
 
-
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(200);
+    }
 }

@@ -2,25 +2,28 @@
 
 namespace App\Http\Player\Resources\Table\Delete;
 
-use App\Domain\Interfaces\Entities\TableInterface;
-use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Resources\Json\JsonResource;
 
-class TableDeleteResource extends JsonResponse
+class TableDeleteResource extends JsonResource
 {
-    private TableInterface $table;
+    private int $id;
 
-    /**
-     * @param TableInterface $table
-     */
-    public function __construct(TableInterface $table)
+    public function __construct(int $id)
     {
-        $this->table = $table;
+        $this->id = $id;
     }
 
-    public function toArray(): array
+    public function toArray($request): array
     {
         return [
-            'id' => $this->table->getId(),
+            'id' => $this->id
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(200);
+    }
+
+
 }

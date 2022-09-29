@@ -8,7 +8,7 @@ class JsonResourceViewModel implements \App\Domain\Interfaces\Entities\ViewModel
 {
     private JsonResource $resource;
 
-    public function __construct(JsonResource $resource)
+    public function __construct($resource)
     {
         $this->resource = $resource;
     }

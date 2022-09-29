@@ -29,4 +29,11 @@ class TableCreatedResource extends \Illuminate\Http\Resources\Json\JsonResource
             'is_game_with_dlc' => $this->table->isGameWithDLC(),
         ];
     }
+
+    public function toResponse($request)
+    {
+        return parent::toResponse($request)->setStatusCode(200);
+    }
+
+
 }

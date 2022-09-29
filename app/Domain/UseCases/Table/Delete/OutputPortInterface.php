@@ -9,5 +9,5 @@ interface OutputPortInterface
     public function tableDeleted(ResponseModel $model): ViewModelInterface;
     public function tableNotDeleted(ResponseModel $model): ViewModelInterface;
     public function tableDoesNotExists(ResponseModel $model): ViewModelInterface;
-    public function updateNotAllowed(ResponseModel $model): ViewModelInterface;
+    public function deleteNotAllowed(ResponseModel $model): ViewModelInterface;
 }

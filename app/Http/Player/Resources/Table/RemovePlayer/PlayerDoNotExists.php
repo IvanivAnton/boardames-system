@@ -12,4 +12,6 @@ class PlayerDoNotExists extends \Illuminate\Http\Resources\Json\JsonResource
             'message' => 'Player with such id do not exists'
         ];
     }
+
+
 }
