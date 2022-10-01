@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Player extends \Illuminate\Database\Eloquent\Model implements \App\Domain\Interfaces\Entities\PlayerInterface
 {
-    use HasFactory, Authenticatable;
+    use HasFactory, Authenticatable, SoftDeletes;
 
     /**
      * @inheritDoc

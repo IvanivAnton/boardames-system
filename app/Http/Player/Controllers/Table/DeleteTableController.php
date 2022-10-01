@@ -20,10 +20,10 @@ class DeleteTableController extends Controller
         $this->inputPort = $inputPort;
     }
 
-    public function __invoke(DeleteTableRequest $request): ViewModelInterface
+    public function __invoke(DeleteTableRequest $request)
     {
         return $this->inputPort->deleteTable(
             new RequestModel($request->validated())
-        );
+        )->getResponse();
     }
 }

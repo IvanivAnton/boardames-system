@@ -14,6 +14,6 @@ Route::prefix('table')->name('table.')->group(function () {
     Route::delete('/', Controllers\Table\DeleteTableController::class)->name('delete');
     Route::patch('/', Controllers\Table\UpdateTableController::class)->name('update');
 
-    Route::patch('/leave', Controllers\Table\LeaveTableController::class)->name('leave');
-    Route::patch('/seat', Controllers\Table\SeatAtTableController::class)->name('seat');
+    Route::delete('/leave', Controllers\Table\LeaveTableController::class)->name('leave');
+    Route::post('/seat', Controllers\Table\SeatAtTableController::class)->name('seat');
 });

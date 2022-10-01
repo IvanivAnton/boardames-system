@@ -19,12 +19,10 @@ class TelegramLoginController extends \Illuminate\Routing\Controller
         $this->inputPort = $inputPort;
     }
 
-    public function __invoke(LoginViaTelegramRequest $request): ViewModelInterface
+    public function __invoke(LoginViaTelegramRequest $request)
     {
         return $this->inputPort->login(
             new RequestModel($request->validated())
-        );
+        )->getResponse();
     }
-
-
 }

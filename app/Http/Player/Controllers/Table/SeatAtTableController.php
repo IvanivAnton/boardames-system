@@ -19,10 +19,10 @@ class SeatAtTableController extends \App\Http\Player\Controllers\Controller
         $this->inputPort = $inputPort;
     }
 
-    public function __invoke(AddPlayerRequest $request): ViewModelInterface
+    public function __invoke(AddPlayerRequest $request)
     {
         return $this->inputPort->addPlayer(
             new RequestModel($request->validated())
-        );
+        )->getResponse();
     }
 }

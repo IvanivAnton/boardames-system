@@ -20,10 +20,10 @@ class AddGameController extends Controller
         $this->inputPort = $inputPort;
     }
 
-    public function __invoke(AddGameRequest $request): ViewModelInterface
+    public function __invoke(AddGameRequest $request)
     {
         return $this->inputPort->add(
             new RequestModel($request->input('name'), $request->input('number_of_players'))
-        );
+        )->getResponse();
     }
 }
