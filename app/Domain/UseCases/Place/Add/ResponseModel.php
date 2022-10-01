@@ -2,24 +2,24 @@
 
 namespace App\Domain\UseCases\Place\Add;
 
-use App\Domain\Interfaces\Entities\PlaceInterface;
+use App\Domain\Interfaces\Entities\PlaceEntityInterface;
 
 class ResponseModel
 {
-    private PlaceInterface $place;
+    private PlaceEntityInterface $place;
 
     /**
-     * @param PlaceInterface $place
+     * @param PlaceEntityInterface $place
      */
-    public function __construct(PlaceInterface $place)
+    public function __construct(PlaceEntityInterface $place)
     {
         $this->place = $place;
     }
 
     /**
-     * @return PlaceInterface
+     * @return PlaceEntityInterface
      */
-    public function getPlace(): PlaceInterface
+    public function getPlace(): PlaceEntityInterface
     {
         return $this->place;
     }

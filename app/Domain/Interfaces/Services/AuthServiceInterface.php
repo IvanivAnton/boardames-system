@@ -2,10 +2,10 @@
 
 namespace App\Domain\Interfaces\Services;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
 
 interface AuthServiceInterface
 {
-    public function login(PlayerInterface $user);
-    public function getPlayer(): PlayerInterface;
+    public function login(PlayerEntityInterface $user);
+    public function getPlayer(): PlayerEntityInterface;
 }

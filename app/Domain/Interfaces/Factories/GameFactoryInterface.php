@@ -2,9 +2,9 @@
 
 namespace App\Domain\Interfaces\Factories;
 
-use App\Domain\Interfaces\Entities\GameInterface;
+use App\Domain\Interfaces\Entities\GameEntityInterface;
 
 interface GameFactoryInterface
 {
-    public function make(array $attributes = []): GameInterface;
+    public function make(array $attributes = []): GameEntityInterface;
 }

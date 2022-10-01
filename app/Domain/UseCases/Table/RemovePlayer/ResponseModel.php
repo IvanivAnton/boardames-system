@@ -2,36 +2,36 @@
 
 namespace App\Domain\UseCases\Table\RemovePlayer;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 
 class ResponseModel
 {
-    private ?TableInterface $table;
-    private ?PlayerInterface $player;
+    private ?TableEntityInterface $table;
+    private ?PlayerEntityInterface $player;
 
     /**
-     * @param TableInterface|null $table
-     * @param PlayerInterface|null $player
+     * @param TableEntityInterface|null $table
+     * @param PlayerEntityInterface|null $player
      */
-    public function __construct(?TableInterface $table = null, ?PlayerInterface $player = null)
+    public function __construct(?TableEntityInterface $table = null, ?PlayerEntityInterface $player = null)
     {
         $this->table = $table;
         $this->player = $player;
     }
 
     /**
-     * @return TableInterface
+     * @return TableEntityInterface
      */
-    public function getTable(): TableInterface
+    public function getTable(): TableEntityInterface
     {
         return $this->table;
     }
 
     /**
-     * @return PlayerInterface
+     * @return PlayerEntityInterface
      */
-    public function getPlayer(): PlayerInterface
+    public function getPlayer(): PlayerEntityInterface
     {
         return $this->player;
     }

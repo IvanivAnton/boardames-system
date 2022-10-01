@@ -2,15 +2,15 @@
 
 namespace App\Domain\Interfaces\Repositories;
 
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 
 interface TableRepositoryInterface
 {
     public function index($request): array;
 
-    public function create(TableInterface $table): TableInterface;
+    public function create(TableEntityInterface $table): TableEntityInterface;
 
-    public function get(int $id): ?TableInterface;
+    public function get(int $id): ?TableEntityInterface;
 
     public function update(int $id, array $values): bool;
 

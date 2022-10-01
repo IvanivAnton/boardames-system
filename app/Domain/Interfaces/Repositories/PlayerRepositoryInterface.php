@@ -2,16 +2,16 @@
 
 namespace App\Domain\Interfaces\Repositories;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
 
 interface PlayerRepositoryInterface
 {
     public function index($request): array;
 
-    public function create(PlayerInterface $player): ?PlayerInterface;
+    public function create(PlayerEntityInterface $player): ?PlayerEntityInterface;
 
-    public function get(int $id): ?PlayerInterface;
-    public function getByTelegramId(int $telegramId): ?PlayerInterface;
+    public function get(int $id): ?PlayerEntityInterface;
+    public function getByTelegramId(int $telegramId): ?PlayerEntityInterface;
 
     public function update(int $id, array $values): bool;
 

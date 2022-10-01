@@ -2,20 +2,20 @@
 
 namespace App\Repositories;
 
-use App\Domain\Interfaces\Entities\PlaceInterface;
-use App\Models\Place;
+use App\Domain\Interfaces\Entities\PlaceEntityInterface;
+use App\Models\PlaceEntity;
 
 class PlaceEloquentRepository implements \App\Domain\Interfaces\Repositories\PlaceRepositoryInterface
 {
     public function index($request): array
     {
-        return Place::all();
+        return PlaceEntity::all();
     }
 
-    public function create(PlaceInterface $place): ?PlaceInterface
+    public function create(PlaceEntityInterface $place): ?PlaceEntityInterface
     {
-        /** @var ?Place $place */
-        $place = Place::query()->create([
+        /** @var ?PlaceEntity $place */
+        $place = PlaceEntity::query()->create([
             'name' => $place->getName(),
             'address' => $place->getAddress(),
             'latitude' => $place->getLatitude(),
@@ -25,32 +25,32 @@ class PlaceEloquentRepository implements \App\Domain\Interfaces\Repositories\Pla
         return $place;
     }
 
-    public function get(int $id): ?PlaceInterface
+    public function get(int $id): ?PlaceEntityInterface
     {
-        /** @var ?Place $place */
-        $place = Place::query()->find($id);
+        /** @var ?PlaceEntity $place */
+        $place = PlaceEntity::query()->find($id);
         return $place;
     }
 
     public function update(int $id, array $values): bool
     {
-        return Place::query()->find($id)->update($values) > 0;
+        return PlaceEntity::query()->find($id)->update($values) > 0;
     }
 
     public function delete(int $id): bool
     {
-        return Place::query()->find($id)->delete();
+        return PlaceEntity::query()->find($id)->delete();
     }
 
     public function exists(int $id): bool
     {
-        return Place::query()->where('id', $id)->exists();
+        return PlaceEntity::query()->where('id', $id)->exists();
     }
 
-    public function getByName(string $name): ?PlaceInterface
+    public function getByName(string $name): ?PlaceEntityInterface
     {
-        /** @var Place $place */
-        $place = Place::query()->where('name', $name)->first();
+        /** @var PlaceEntity $place */
+        $place = PlaceEntity::query()->where('name', $name)->first();
         return $place;
     }
 }

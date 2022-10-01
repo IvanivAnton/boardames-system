@@ -2,19 +2,19 @@
 
 namespace App\Http\Player\Resources\Table\AddPlayer;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 
 class PlayerAddedResource extends \Illuminate\Http\Resources\Json\JsonResource
 {
-    protected PlayerInterface $player;
-    protected TableInterface $table;
+    protected PlayerEntityInterface $player;
+    protected TableEntityInterface $table;
 
     /**
-     * @param PlayerInterface $player
-     * @param TableInterface $table
+     * @param PlayerEntityInterface $player
+     * @param TableEntityInterface $table
      */
-    public function __construct(PlayerInterface $player, TableInterface $table)
+    public function __construct(PlayerEntityInterface $player, TableEntityInterface $table)
     {
         parent::__construct($this->resource);
         $this->player = $player;

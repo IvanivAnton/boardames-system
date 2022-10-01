@@ -2,7 +2,7 @@
 
 namespace App\Domain\Interfaces\Repositories;
 
-use App\Domain\Interfaces\Entities\EventInterface;
+use App\Domain\Interfaces\Entities\EventEntityInterface;
 
 interface EventRepositoryInterface
 {
@@ -10,9 +10,9 @@ interface EventRepositoryInterface
 
     public function index($request): array;
 
-    public function create(EventInterface $event): ?EventInterface;
+    public function create(EventEntityInterface $event): ?EventEntityInterface;
 
-    public function get(int $id): ?EventInterface;
+    public function get(int $id): ?EventEntityInterface;
 
     public function update(int $id, array $values): bool;
 
@@ -20,5 +20,5 @@ interface EventRepositoryInterface
 
     public function exists(int $id): bool;
 
-    public function getByDateAndPlace(string $startTime, int $placeId): ?EventInterface;
+    public function getByDateAndPlace(string $startTime, int $placeId): ?EventEntityInterface;
 }

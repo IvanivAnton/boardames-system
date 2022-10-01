@@ -2,7 +2,7 @@
 
 namespace App\Domain\Interfaces\Entities;
 
-interface PlaceInterface
+interface GameEntityInterface
 {
     /**
      * @return int
@@ -15,24 +15,9 @@ interface PlaceInterface
     public function getName(): string;
 
     /**
-     * @return string|null
-     */
-    public function getAddress(): ?string;
-
-    /**
-     * @return float|null
-     */
-    public function getLatitude(): ?float;
-
-    /**
-     * @return float|null
-     */
-    public function getLongitude(): ?float;
-
-    /**
      * @return int
      */
-    public function getNumberOfTables(): int;
+    public function getNumberOfPlayers(): int;
 
     /**
      * @return \DateTimeInterface
@@ -43,5 +28,4 @@ interface PlaceInterface
      * @return \DateTimeInterface
      */
     public function getDeletedAt(): \DateTimeInterface;
-
 }

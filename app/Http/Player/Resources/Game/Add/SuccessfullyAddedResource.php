@@ -2,16 +2,16 @@
 
 namespace App\Http\Player\Resources\Game\Add;
 
-use App\Domain\Interfaces\Entities\GameInterface;
+use App\Domain\Interfaces\Entities\GameEntityInterface;
 
 class SuccessfullyAddedResource extends \Illuminate\Http\Resources\Json\JsonResource
 {
-    protected GameInterface $game;
+    protected GameEntityInterface $game;
 
     /**
-     * @param GameInterface $game
+     * @param GameEntityInterface $game
      */
-    public function __construct(GameInterface $game)
+    public function __construct(GameEntityInterface $game)
     {
         $this->game = $game;
     }

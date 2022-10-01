@@ -2,52 +2,52 @@
 
 namespace App\Repositories;
 
-use App\Domain\Interfaces\Entities\GameInterface;
-use App\Models\Game;
+use App\Domain\Interfaces\Entities\GameEntityInterface;
+use App\Models\GameEntity;
 
 class GameEloquentRepository implements \App\Domain\Interfaces\Repositories\GameRepositoryInterface
 {
     public function index($request): array
     {
-        return Game::all();
+        return GameEntity::all();
     }
 
-    public function create(GameInterface $game): ?GameInterface
+    public function create(GameEntityInterface $game): ?GameEntityInterface
     {
-        /** @var Game $game */
-        $game = Game::query()->create([
+        /** @var GameEntity $game */
+        $game = GameEntity::query()->create([
             'name' => $game->getName(),
             'number_of_players' => $game->getNumberOfPlayers(),
         ]);
         return $game;
     }
 
-    public function get(int $id): ?GameInterface
+    public function get(int $id): ?GameEntityInterface
     {
-        /** @var Game $game */
-        $game = Game::query()->find($id);
+        /** @var GameEntity $game */
+        $game = GameEntity::query()->find($id);
         return $game;
     }
 
     public function update(int $id, array $values): bool
     {
-        return Game::query()->find($id)->update($values) > 0;
+        return GameEntity::query()->find($id)->update($values) > 0;
     }
 
     public function delete(int $id): bool
     {
-        return Game::query()->find($id)->delete();
+        return GameEntity::query()->find($id)->delete();
     }
 
     public function exists(int $id): bool
     {
-        return Game::query()->where('id', $id)->exists();
+        return GameEntity::query()->where('id', $id)->exists();
     }
 
-    public function getByName(string $name): ?GameInterface
+    public function getByName(string $name): ?GameEntityInterface
     {
-        /** @var Game $game */
-        $game = Game::query()->where('name', $name)->first();
+        /** @var GameEntity $game */
+        $game = GameEntity::query()->where('name', $name)->first();
         return $game;
     }
 }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Player\Resources\Table\Add;
 
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 
 class TableCreatedResource extends \Illuminate\Http\Resources\Json\JsonResource
 {
-    protected TableInterface $table;
+    protected TableEntityInterface $table;
 
     /**
-     * @param TableInterface $table
+     * @param TableEntityInterface $table
      */
-    public function __construct(TableInterface $table)
+    public function __construct(TableEntityInterface $table)
     {
         parent::__construct($this->resource);
         $this->table = $table;

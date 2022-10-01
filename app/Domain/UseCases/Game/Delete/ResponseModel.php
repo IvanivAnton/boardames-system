@@ -2,24 +2,24 @@
 
 namespace App\Domain\UseCases\Game\Delete;
 
-use App\Domain\Interfaces\Entities\GameInterface;
+use App\Domain\Interfaces\Entities\GameEntityInterface;
 
 class ResponseModel
 {
-    private GameInterface $game;
+    private GameEntityInterface $game;
 
     /**
-     * @param GameInterface $gameDay
+     * @param GameEntityInterface $gameDay
      */
-    public function __construct(GameInterface $gameDay)
+    public function __construct(GameEntityInterface $gameDay)
     {
         $this->game = $gameDay;
     }
 
     /**
-     * @return GameInterface
+     * @return GameEntityInterface
      */
-    public function getGame(): GameInterface
+    public function getGame(): GameEntityInterface
     {
         return $this->game;
     }

@@ -2,7 +2,7 @@
 
 namespace App\Domain\UseCases\Table\Delete;
 
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 
 class ResponseModel
 {

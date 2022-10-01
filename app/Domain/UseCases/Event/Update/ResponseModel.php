@@ -2,24 +2,24 @@
 
 namespace App\Domain\UseCases\Event\Update;
 
-use App\Domain\Interfaces\Entities\EventInterface;
+use App\Domain\Interfaces\Entities\EventEntityInterface;
 
 class ResponseModel
 {
-    private EventInterface $event;
+    private EventEntityInterface $event;
 
     /**
-     * @param EventInterface $event
+     * @param EventEntityInterface $event
      */
-    public function __construct(EventInterface $event)
+    public function __construct(EventEntityInterface $event)
     {
         $this->event = $event;
     }
 
     /**
-     * @return EventInterface
+     * @return EventEntityInterface
      */
-    public function getEvent(): EventInterface
+    public function getEvent(): EventEntityInterface
     {
         return $this->event;
     }

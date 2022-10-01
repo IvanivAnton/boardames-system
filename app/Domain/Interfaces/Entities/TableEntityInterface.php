@@ -2,7 +2,7 @@
 
 namespace App\Domain\Interfaces\Entities;
 
-interface TableInterface
+interface TableEntityInterface
 {
     /**
      * @return int|null

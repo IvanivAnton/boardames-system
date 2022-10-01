@@ -2,7 +2,7 @@
 
 namespace App\Domain\Interfaces\Entities;
 
-interface EventInterface
+interface PlaceEntityInterface
 {
     /**
      * @return int
@@ -10,19 +10,24 @@ interface EventInterface
     public function getId(): int;
 
     /**
-     * @return \DateTimeInterface
-     */
-    public function getDate(): \DateTimeInterface;
-
-    /**
      * @return string
      */
-    public function getGameDefaultStartTime(): string;
+    public function getName(): string;
 
     /**
-     * @return int
+     * @return string|null
      */
-    public function getPlaceId(): int;
+    public function getAddress(): ?string;
+
+    /**
+     * @return float|null
+     */
+    public function getLatitude(): ?float;
+
+    /**
+     * @return float|null
+     */
+    public function getLongitude(): ?float;
 
     /**
      * @return int

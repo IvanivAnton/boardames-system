@@ -2,26 +2,26 @@
 
 namespace App\Repositories;
 
-use App\Domain\Interfaces\Entities\EventInterface;
-use App\Models\Event;
-use App\Models\Table;
+use App\Domain\Interfaces\Entities\EventEntityInterface;
+use App\Models\EventEntity;
+use App\Models\TableEntity;
 
 class EventEloquentRepository implements \App\Domain\Interfaces\Repositories\EventRepositoryInterface
 {
     public function numberOfTables(int $id): int
     {
-        return Table::query()->where('event_id', $id)->count();
+        return TableEntity::query()->where('event_id', $id)->count();
     }
 
     public function index($request): array
     {
-        return Table::all();
+        return TableEntity::all();
     }
 
-    public function create(EventInterface $event): ?EventInterface
+    public function create(EventEntityInterface $event): ?EventEntityInterface
     {
-        /** @var Event $event */
-        $event = Event::query()->create([
+        /** @var EventEntity $event */
+        $event = EventEntity::query()->create([
             'date' => $event->getDate(),
             'start_time' => $event->getGameDefaultStartTime(),
             'place_id' => $event->getPlaceId(),
@@ -29,32 +29,32 @@ class EventEloquentRepository implements \App\Domain\Interfaces\Repositories\Eve
         return $event;
     }
 
-    public function get(int $id): ?EventInterface
+    public function get(int $id): ?EventEntityInterface
     {
-        /** @var Event $event */
-        $event = Event::query()->find($id);
+        /** @var EventEntity $event */
+        $event = EventEntity::query()->find($id);
         return $event;
     }
 
     public function update(int $id, array $values): bool
     {
-        return Event::query()->find($id)->update($values) > 0;
+        return EventEntity::query()->find($id)->update($values) > 0;
     }
 
     public function delete(int $id): bool
     {
-        return Event::query()->find($id)->delete();
+        return EventEntity::query()->find($id)->delete();
     }
 
     public function exists(int $id): bool
     {
-        return Event::query()->where('id', $id)->exists();
+        return EventEntity::query()->where('id', $id)->exists();
     }
 
-    public function getByDateAndPlace(string $startTime, int $placeId): ?EventInterface
+    public function getByDateAndPlace(string $startTime, int $placeId): ?EventEntityInterface
     {
-        /** @var Event $event */
-        $event = Event::query()->where([
+        /** @var EventEntity $event */
+        $event = EventEntity::query()->where([
             'start_time' => $startTime,
             'place_id' => $placeId,
         ])->first();

@@ -4,7 +4,7 @@ namespace App\Domain\Interfaces\Entities;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 
-interface PlayerInterface extends Authenticatable
+interface PlayerEntityInterface extends Authenticatable
 {
     /**
      * @return int

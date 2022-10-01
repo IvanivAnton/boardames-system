@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * @method Table find($id)
+ * @method TableEntity find($id)
  */
-class Table extends \Illuminate\Database\Eloquent\Model implements \App\Domain\Interfaces\Entities\TableInterface
+class TableEntity extends \Illuminate\Database\Eloquent\Model implements \App\Domain\Interfaces\Entities\TableEntityInterface
 {
     use HasFactory, SoftDeletes;
 

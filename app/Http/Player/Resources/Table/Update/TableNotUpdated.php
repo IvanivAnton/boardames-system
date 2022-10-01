@@ -2,7 +2,7 @@
 
 namespace App\Http\Player\Resources\Table\Update;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
 
 class TableNotUpdated extends \Illuminate\Http\Resources\Json\JsonResource
 {

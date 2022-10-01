@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Domain\Interfaces\Entities\EventEntityInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Place extends \Illuminate\Database\Eloquent\Model implements \App\Domain\Interfaces\Entities\PlaceInterface
+class EventEntity extends Model implements EventEntityInterface
 {
     use HasFactory, SoftDeletes;
 
@@ -20,41 +22,25 @@ class Place extends \Illuminate\Database\Eloquent\Model implements \App\Domain\I
     /**
      * @inheritDoc
      */
-    public function getName(): string
+    public function getDate(): \DateTimeInterface
     {
-        return $this->attributes['name'];
+        return $this->attributes['date'];
     }
 
     /**
      * @inheritDoc
      */
-    public function getAddress(): ?string
+    public function getGameDefaultStartTime(): string
     {
-        return $this->attributes['address'];
+        return $this->attributes['game_default_start_time'];
     }
 
     /**
      * @inheritDoc
      */
-    public function getLatitude(): ?float
+    public function getPlaceId(): int
     {
-        return $this->attributes['latitude'] ?? null;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getLongitude(): ?float
-    {
-        return $this->attributes['longitude'] ?? null;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getNumberOfTables(): int
-    {
-        return $this->attributes['number_of_tables'];
+        return $this->attributes['place_id'];
     }
 
     /**
@@ -71,5 +57,10 @@ class Place extends \Illuminate\Database\Eloquent\Model implements \App\Domain\I
     public function getDeletedAt(): \DateTimeInterface
     {
         return $this->attributes['deleted_at'];
+    }
+
+    public function getNumberOfTables(): int
+    {
+        return $this->attributes['number_of_tables'];
     }
 }
