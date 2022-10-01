@@ -2,7 +2,7 @@
 
 namespace App\Domain\Interfaces\Entities;
 
-interface GameInterface
+interface EventEntityInterface
 {
     /**
      * @return int
@@ -10,14 +10,24 @@ interface GameInterface
     public function getId(): int;
 
     /**
+     * @return \DateTimeInterface
+     */
+    public function getDate(): \DateTimeInterface;
+
+    /**
      * @return string
      */
-    public function getName(): string;
+    public function getGameDefaultStartTime(): string;
 
     /**
      * @return int
      */
-    public function getNumberOfPlayers(): int;
+    public function getPlaceId(): int;
+
+    /**
+     * @return int
+     */
+    public function getNumberOfTables(): int;
 
     /**
      * @return \DateTimeInterface
@@ -28,4 +38,5 @@ interface GameInterface
      * @return \DateTimeInterface
      */
     public function getDeletedAt(): \DateTimeInterface;
+
 }

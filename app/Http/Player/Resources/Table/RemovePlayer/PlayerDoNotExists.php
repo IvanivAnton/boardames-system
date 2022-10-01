@@ -2,7 +2,7 @@
 
 namespace App\Http\Player\Resources\Table\RemovePlayer;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
 
 class PlayerDoNotExists extends \Illuminate\Http\Resources\Json\JsonResource
 {

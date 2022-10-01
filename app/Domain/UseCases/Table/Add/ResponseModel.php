@@ -2,24 +2,24 @@
 
 namespace App\Domain\UseCases\Table\Add;
 
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 
 class ResponseModel
 {
-    private TableInterface $table;
+    private TableEntityInterface $table;
 
     /**
-     * @param TableInterface $table
+     * @param TableEntityInterface $table
      */
-    public function __construct(TableInterface $table)
+    public function __construct(TableEntityInterface $table)
     {
         $this->table = $table;
     }
 
     /**
-     * @return TableInterface
+     * @return TableEntityInterface
      */
-    public function getTable(): TableInterface
+    public function getTable(): TableEntityInterface
     {
         return $this->table;
     }

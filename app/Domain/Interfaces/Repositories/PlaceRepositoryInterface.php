@@ -2,15 +2,15 @@
 
 namespace App\Domain\Interfaces\Repositories;
 
-use App\Domain\Interfaces\Entities\PlaceInterface;
+use App\Domain\Interfaces\Entities\PlaceEntityInterface;
 
 interface PlaceRepositoryInterface
 {
     public function index($request): array;
 
-    public function create(PlaceInterface $place): ?PlaceInterface;
+    public function create(PlaceEntityInterface $place): ?PlaceEntityInterface;
 
-    public function get(int $id): ?PlaceInterface;
+    public function get(int $id): ?PlaceEntityInterface;
 
     public function update(int $id, array $values): bool;
 
@@ -18,6 +18,6 @@ interface PlaceRepositoryInterface
 
     public function exists(int $id): bool;
 
-    public function getByName(string $name): ?PlaceInterface;
+    public function getByName(string $name): ?PlaceEntityInterface;
 
 }

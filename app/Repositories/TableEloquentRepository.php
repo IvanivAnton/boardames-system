@@ -2,9 +2,9 @@
 
 namespace App\Repositories;
 
-use App\Domain\Interfaces\Entities\TableInterface;
+use App\Domain\Interfaces\Entities\TableEntityInterface;
 use App\Domain\Interfaces\Repositories\TableRepositoryInterface;
-use App\Models\Table;
+use App\Models\TableEntity;
 use App\Models\TablePlayer;
 use Facade\Ignition\Tabs\Tab;
 
@@ -13,13 +13,13 @@ class TableEloquentRepository implements TableRepositoryInterface
 
     public function index($request): array
     {
-        return Table::all()->toArray();
+        return TableEntity::all()->toArray();
     }
 
-    public function create(TableInterface $table): TableInterface
+    public function create(TableEntityInterface $table): TableEntityInterface
     {
-        /** @var Table $table */
-        $table = Table::query()->create([
+        /** @var TableEntity $table */
+        $table = TableEntity::query()->create([
             'game_id' => $table->getGameId(),
             'event_id' => $table->getEventId(),
             'is_game_with_dlc' => $table->isGameWithDLC(),
@@ -31,21 +31,21 @@ class TableEloquentRepository implements TableRepositoryInterface
         return $table;
     }
 
-    public function get(int $id): ?TableInterface
+    public function get(int $id): ?TableEntityInterface
     {
-        /** @var Table $table */
-        $table = Table::query()->find($id);
+        /** @var TableEntity $table */
+        $table = TableEntity::query()->find($id);
         return $table;
     }
 
     public function update(int $id, array $values): bool
     {
-        return Table::query()->find($id)->update($values) > 0;
+        return TableEntity::query()->find($id)->update($values) > 0;
     }
 
     public function delete(int $id): bool
     {
-        return Table::query()->find($id)->delete();
+        return TableEntity::query()->find($id)->delete();
     }
 
     public function addPlayer(int $tableId, int $playerId): bool
@@ -58,7 +58,7 @@ class TableEloquentRepository implements TableRepositoryInterface
 
     public function exists(int $id): bool
     {
-        return Table::query()->where('id', $id)->exists();
+        return TableEntity::query()->where('id', $id)->exists();
     }
 
     public function currentNumberOfPlayers(int $id): int

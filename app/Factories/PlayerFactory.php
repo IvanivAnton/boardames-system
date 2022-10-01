@@ -2,14 +2,14 @@
 
 namespace App\Factories;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
 use App\Domain\Interfaces\Factories\PlayerFactoryInterface;
-use App\Models\Player;
+use App\Models\PlayerEntity;
 
 class PlayerFactory implements PlayerFactoryInterface
 {
-    public function make(array $attributes = []): PlayerInterface
+    public function make(array $attributes = []): PlayerEntityInterface
     {
-        return new Player($attributes);
+        return new PlayerEntity($attributes);
     }
 }

@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
-use App\Domain\Interfaces\Entities\GameInterface;
+use App\Domain\Interfaces\Entities\GameEntityInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Game extends Model implements GameInterface
+class GameEntity extends Model implements GameEntityInterface
 {
     use HasFactory, SoftDeletes;
 

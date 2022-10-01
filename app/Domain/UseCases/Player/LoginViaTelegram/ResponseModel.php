@@ -2,24 +2,24 @@
 
 namespace App\Domain\UseCases\Player\LoginViaTelegram;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
 
 class ResponseModel
 {
-    private PlayerInterface $player;
+    private PlayerEntityInterface $player;
 
     /**
-     * @param PlayerInterface $player
+     * @param PlayerEntityInterface $player
      */
-    public function __construct(PlayerInterface $player)
+    public function __construct(PlayerEntityInterface $player)
     {
         $this->player = $player;
     }
 
     /**
-     * @return PlayerInterface
+     * @return PlayerEntityInterface
      */
-    public function getPlayer(): PlayerInterface
+    public function getPlayer(): PlayerEntityInterface
     {
         return $this->player;
     }

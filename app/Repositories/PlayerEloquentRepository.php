@@ -2,20 +2,20 @@
 
 namespace App\Repositories;
 
-use App\Domain\Interfaces\Entities\PlayerInterface;
-use App\Models\Player;
+use App\Domain\Interfaces\Entities\PlayerEntityInterface;
+use App\Models\PlayerEntity;
 
 class PlayerEloquentRepository implements \App\Domain\Interfaces\Repositories\PlayerRepositoryInterface
 {
     public function index($request): array
     {
-        return Player::all();
+        return PlayerEntity::all();
     }
 
-    public function create(PlayerInterface $player): ?PlayerInterface
+    public function create(PlayerEntityInterface $player): ?PlayerEntityInterface
     {
-        /** @var Player $player */
-        $player = Player::query()->create([
+        /** @var PlayerEntity $player */
+        $player = PlayerEntity::query()->create([
            'first_name' => $player->getFirstName(),
            'last_name' => $player->getLastName(),
            'username' => $player->getUsername(),
@@ -25,32 +25,32 @@ class PlayerEloquentRepository implements \App\Domain\Interfaces\Repositories\Pl
         return $player;
     }
 
-    public function get(int $id): ?PlayerInterface
+    public function get(int $id): ?PlayerEntityInterface
     {
-        /** @var Player $player */
-        $player = Player::query()->find($id);
+        /** @var PlayerEntity $player */
+        $player = PlayerEntity::query()->find($id);
         return $player;
     }
 
-    public function getByTelegramId(int $telegramId): ?PlayerInterface
+    public function getByTelegramId(int $telegramId): ?PlayerEntityInterface
     {
-        /** @var Player $player */
-        $player = Player::query()->where('telegram_id', $telegramId)->first();
+        /** @var PlayerEntity $player */
+        $player = PlayerEntity::query()->where('telegram_id', $telegramId)->first();
         return $player;
     }
 
     public function update(int $id, array $values): bool
     {
-        return Player::query()->find($id)->update($values) > 0;
+        return PlayerEntity::query()->find($id)->update($values) > 0;
     }
 
     public function delete(int $id): bool
     {
-        return Player::query()->find($id)->delete();
+        return PlayerEntity::query()->find($id)->delete();
     }
 
     public function exists(int $id): bool
     {
-        return Player::query()->where('id', $id)->exists();
+        return PlayerEntity::query()->where('id', $id)->exists();
     }
 }

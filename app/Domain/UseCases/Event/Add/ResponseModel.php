@@ -2,24 +2,24 @@
 
 namespace App\Domain\UseCases\Event\Add;
 
-use App\Domain\Interfaces\Entities\EventInterface;
+use App\Domain\Interfaces\Entities\EventEntityInterface;
 
 class ResponseModel
 {
-    private EventInterface $event;
+    private EventEntityInterface $event;
 
     /**
-     * @param EventInterface $gameDay
+     * @param EventEntityInterface $gameDay
      */
-    public function __construct(EventInterface $gameDay)
+    public function __construct(EventEntityInterface $gameDay)
     {
         $this->event = $gameDay;
     }
 
     /**
-     * @return EventInterface
+     * @return EventEntityInterface
      */
-    public function getEvent(): EventInterface
+    public function getEvent(): EventEntityInterface
     {
         return $this->event;
     }
