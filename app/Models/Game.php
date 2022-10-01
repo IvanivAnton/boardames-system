@@ -5,10 +5,16 @@ namespace App\Models;
 use App\Domain\Interfaces\Entities\GameInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Game extends Model implements GameInterface
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'name',
+        'number_of_players',
+    ];
 
     public function getId(): int
     {

@@ -46,7 +46,9 @@ class Interactor implements InputPortInterface
 
     public function addPlayer(RequestModel $model): ViewModelInterface
     {
-        $playerId = $this->authService->getPlayer()->getId();
+        //TODO remove when auth complete
+//        $playerId = $this->authService->getPlayer()->getId();
+        $playerId = 2;
         if(!$this->playerRepository->exists($playerId)) {
             return $this->output->playerDoNotExist(
                 new ResponseModel(null, $this->playerFactory->make(['id' => $playerId]))

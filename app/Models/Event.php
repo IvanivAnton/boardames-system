@@ -5,10 +5,11 @@ namespace App\Models;
 use App\Domain\Interfaces\Entities\EventInterface;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model implements EventInterface
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     /**
      * @inheritDoc

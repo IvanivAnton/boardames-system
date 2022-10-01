@@ -46,7 +46,9 @@ class Interactor implements InputPortInterface
 
     public function removePlayer(RequestModel $model): ViewModelInterface
     {
-        $playerId = $this->authService->getPlayer()->getId();
+        //TODO remove when auth complete
+//        $playerId = $this->authService->getPlayer()->getId();
+        $playerId = 2;
         if(!$this->playerRepository->exists($playerId)) {
             return $this->output->playerDoNotExist(
                 new ResponseModel(null, $this->playerFactory->make(['id' => $playerId]))
@@ -65,7 +67,7 @@ class Interactor implements InputPortInterface
         $table = $this->tableRepository->get($tableId);
         $responseModel = new ResponseModel($table, $player);
 
-        if(!$this->tableRepository->addPlayer($tableId, $playerId)) {
+        if(!$this->tableRepository->removePlayer($tableId, $playerId)) {
             return $this->output->playerNotRemoved($responseModel);
         }
 

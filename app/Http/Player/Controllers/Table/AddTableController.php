@@ -19,10 +19,10 @@ class AddTableController extends \App\Http\Player\Controllers\Controller
         $this->inputPort = $inputPort;
     }
 
-    public function __invoke(AddTableRequest $request): ViewModelInterface
+    public function __invoke(AddTableRequest $request)
     {
         return $this->inputPort->addTable(
             new RequestModel($request->validated())
-        );
+        )->getResponse();
     }
 }

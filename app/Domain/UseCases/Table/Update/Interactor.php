@@ -37,11 +37,11 @@ class Interactor implements InputPortInterface
     {
         $values = [
             'id' => $requestModel->getId(),
-            'gameId' => $requestModel->getGameId(),
-            'gameWithDLC' => $requestModel->isGameWithDLC(),
-            'ownsABox' => $requestModel->isOwnsABox(),
-            'numberOfPlayers' => $requestModel->getNumberOfPlayers(),
-            'startTime' => $requestModel->getStartTime(),
+            'game_id' => $requestModel->getGameId(),
+            'is_game_with_dlc' => $requestModel->isGameWithDLC(),
+            'is_owns_a_box' => $requestModel->isOwnsABox(),
+            'number_of_players' => $requestModel->getNumberOfPlayers(),
+            'start_time' => $requestModel->getStartTime(),
         ];
         if(!$this->tableService->canCurrentPlayerEditTable($requestModel->getId())) {
             return $this->output->updateNotAllowed(new ResponseModel($this->factory->make($values)));

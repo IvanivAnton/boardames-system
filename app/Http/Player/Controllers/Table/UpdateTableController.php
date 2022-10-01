@@ -20,10 +20,10 @@ class UpdateTableController extends Controller
         $this->inputPort = $inputPort;
     }
 
-    public function __invoke(UpdateTableRequest $request): ViewModelInterface
+    public function __invoke(UpdateTableRequest $request)
     {
         return $this->inputPort->updateTable(
             new RequestModel($request->validated())
-        );
+        )->getResponse();
     }
 }

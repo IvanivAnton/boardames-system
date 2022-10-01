@@ -3,13 +3,24 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method Table find($id)
  */
 class Table extends \Illuminate\Database\Eloquent\Model implements \App\Domain\Interfaces\Entities\TableInterface
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'is_game_with_dlc',
+        'is_owns_a_box',
+        'number_of_players',
+        'start_time',
+        'event_id',
+        'owner_id',
+        'game_id',
+    ];
 
     /**
      * @inheritDoc

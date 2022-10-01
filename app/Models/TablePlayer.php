@@ -3,10 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TablePlayer extends \Illuminate\Database\Eloquent\Model implements \App\Domain\Interfaces\Entities\TablePlayerInterface
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
+
+    protected $fillable = [
+        'table_id',
+        'player_id',
+    ];
 
     /**
      * @inheritDoc

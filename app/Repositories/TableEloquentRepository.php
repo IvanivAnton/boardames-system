@@ -26,6 +26,7 @@ class TableEloquentRepository implements TableRepositoryInterface
             'is_owns_a_box' => $table->isOwnsABox(),
             'number_of_players' => $table->getNumberOfPlayers(),
             'start_time' => $table->getStartTime(),
+            'owner_id' => $table->getOwnerId(),
         ]);
         return $table;
     }
@@ -49,7 +50,7 @@ class TableEloquentRepository implements TableRepositoryInterface
 
     public function addPlayer(int $tableId, int $playerId): bool
     {
-        return !empty(TablePlayer::query()->create([
+        return !empty(TablePlayer::query()->firstOrCreate([
             'table_id' => $tableId,
             'player_id' => $playerId,
         ]));

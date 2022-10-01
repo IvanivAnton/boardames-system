@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Domain\Interfaces\Repositories\TableRepositoryInterface;
 use App\Domain\Interfaces\Services\AuthServiceInterface;
+use App\Models\Player;
 
 class TableService implements \App\Domain\Interfaces\Services\TableServiceInterface
 {
@@ -23,7 +24,10 @@ class TableService implements \App\Domain\Interfaces\Services\TableServiceInterf
 
     public function canCurrentPlayerEditTable(int $tableId): bool
     {
-        $currentPlayer = $this->authService->getPlayer();
+//        $currentPlayer = $this->authService->getPlayer();
+        //TODO remove when auth complete
+        /** @var Player $currentPlayer */
+        $currentPlayer = Player::query()->find(2);
 
         $table = $this->repository->get($tableId);
 

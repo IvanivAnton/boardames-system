@@ -32,7 +32,7 @@ class RequestModel
     /**
      * @return bool
      */
-    public function isGameWithDLC(): bool
+    public function isGameWithDLC(): ?bool
     {
         return $this->gameWithDLC;
     }
@@ -40,7 +40,7 @@ class RequestModel
     /**
      * @return bool
      */
-    public function isOwnsABox(): bool
+    public function isOwnsABox(): ?bool
     {
         return $this->ownsABox;
     }
@@ -48,7 +48,7 @@ class RequestModel
     /**
      * @return int
      */
-    public function getNumberOfPlayers(): int
+    public function getNumberOfPlayers(): ?int
     {
         return $this->numberOfPlayers;
     }
@@ -56,7 +56,7 @@ class RequestModel
     /**
      * @return string
      */
-    public function getStartTime(): string
+    public function getStartTime(): ?string
     {
         return $this->startTime;
     }
